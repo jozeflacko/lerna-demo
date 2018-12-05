@@ -1,0 +1,22 @@
+{
+  "name": "hello-world",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/bundle.js",
+  "types": "src/index.ts",
+  "scripts": {
+    "build": "webpack --mode production",
+    "watch": "webpack --mode development --watch",
+    "start": "webpack --mode development --watch"
+  },
+  "devDependencies": {
+    "typescript": "^3.2.1",
+    "webpack": "^4.26.1",
+    "ts-loader": "^5.3.1"
+  },
+  "dependencies": {
+    "sdk":"^1.0.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
