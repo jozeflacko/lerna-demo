@@ -1,25 +1,16 @@
 // imports - services§
 import utils from './utils';
 import services from './services';
+import { Answer } from './services/yes-no/YesNoService';
 
-// imports - interfaces
-//import { Answer } from './services/yes-no/YesNoService';
-
+// functionality
 export {
-   utils,
-   services
-}
-
-/*
-export default {
-    utils
-}
-
-
-export {
-    // functionality
+   
     utils,
-    
-    // intefaces
-    Answer
-}*/
+   
+   // services
+   services,
+
+   // intefaces
+   Answer
+}

@@ -2,7 +2,7 @@ import HttpClient from '../http-client/HttpClient';
 
 export interface Answer {
     answer: string,
-    forced: string,
+    forced: boolean,
     image: string
 }
 
@@ -16,7 +16,7 @@ export default class YesNoService extends HttpClient {
         return "";        
     };
 
-    private async getAnswerPromise() {
+    public async getAnswerPromise() {
         return await this.get<Answer>("");
     }
 

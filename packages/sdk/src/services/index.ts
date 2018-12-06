@@ -10,4 +10,5 @@ export default class Services {
         }
         return this.yesNoService;
     }
-};
+};  
+
