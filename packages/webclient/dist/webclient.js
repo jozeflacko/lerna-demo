@@ -23584,7 +23584,7 @@ eval("\r\nexports.__esModule = true;\r\nvar TimeUtils_1 = __webpack_require__(/*
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nexports.__esModule = true;\r\nvar TimeUtils = (function () {\r\n    function TimeUtils() {\r\n    }\r\n    TimeUtils.getDate = function () {\r\n        return \"Current time:\" + new Date();\r\n    };\r\n    return TimeUtils;\r\n}());\r\nexports[\"default\"] = TimeUtils;\r\n\n\n//# sourceURL=webpack://project.sdk/./src/utils/time/TimeUtils.ts?");
+eval("\r\nexports.__esModule = true;\r\nvar TimeUtils = (function () {\r\n    function TimeUtils() {\r\n    }\r\n    TimeUtils.getDate = function () {\r\n        return new Date();\r\n    };\r\n    TimeUtils.getToday = function () {\r\n        var date = this.getDate();\r\n        var _a = [date.getDate(), date.getMonth(), date.getFullYear()], day = _a[0], month = _a[1], year = _a[2];\r\n        return day + \".\" + month + \".\" + year;\r\n    };\r\n    TimeUtils.getCurrentTime = function () {\r\n        var date = this.getDate();\r\n        var _a = [date.getHours(), date.getMinutes(), date.getSeconds()], hours = _a[0], minutes = _a[1], seconds = _a[2];\r\n        return hours + \":\" + minutes + \":\" + seconds;\r\n    };\r\n    return TimeUtils;\r\n}());\r\nexports[\"default\"] = TimeUtils;\r\n\n\n//# sourceURL=webpack://project.sdk/./src/utils/time/TimeUtils.ts?");
 
 /***/ })
 
@@ -23593,10 +23593,10 @@ eval("\r\nexports.__esModule = true;\r\nvar TimeUtils = (function () {\r\n    fu
 
 /***/ }),
 
-/***/ "./src/components/Hello.tsx":
-/*!**********************************!*\
-  !*** ./src/components/Hello.tsx ***!
-  \**********************************/
+/***/ "./src/components/time-panel/TimePanel.tsx":
+/*!*************************************************!*\
+  !*** ./src/components/time-panel/TimePanel.tsx ***!
+  \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23618,19 +23618,31 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(/*! react */ "../../node_modules/react/index.js");
 var sdk = __webpack_require__(/*! sdk */ "../sdk/dist/sdk.js");
-var Hello = /** @class */ (function (_super) {
-    __extends(Hello, _super);
-    function Hello() {
-        return _super !== null && _super.apply(this, arguments) || this;
+var App = /** @class */ (function (_super) {
+    __extends(App, _super);
+    function App(props) {
+        var _this = _super.call(this, props) || this;
+        _this.state = {
+            today: "",
+            time: ""
+        };
+        _this.state = {
+            today: sdk.utils.TimeUtils.getToday(),
+            time: sdk.utils.TimeUtils.getCurrentTime()
+        };
+        return _this;
     }
-    Hello.prototype.render = function () {
+    App.prototype.render = function () {
+        var _a = this.state, today = _a.today, time = _a.time;
         return (React.createElement("div", null,
-            sdk.utils.TimeUtils.getDate(),
-            " "));
+            React.createElement("span", null, this.props.prefixText),
+            React.createElement("span", null, time),
+            React.createElement("span", null, " "),
+            React.createElement("span", null, today)));
     };
-    return Hello;
+    return App;
 }(React.Component));
-exports.default = Hello;
+exports.default = App;
 
 
 /***/ }),
@@ -23647,8 +23659,51 @@ exports.default = Hello;
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(/*! react */ "../../node_modules/react/index.js");
 var ReactDOM = __webpack_require__(/*! react-dom */ "../../node_modules/react-dom/index.js");
-var Hello_1 = __webpack_require__(/*! ./components/Hello */ "./src/components/Hello.tsx");
-ReactDOM.render(React.createElement(Hello_1.default, null), document.getElementById("app"));
+var views_1 = __webpack_require__(/*! ./views */ "./src/views/index.tsx");
+ReactDOM.render(React.createElement(views_1.default, null), document.getElementById("app"));
+
+
+/***/ }),
+
+/***/ "./src/views/index.tsx":
+/*!*****************************!*\
+  !*** ./src/views/index.tsx ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __webpack_require__(/*! react */ "../../node_modules/react/index.js");
+var TimePanel_1 = __webpack_require__(/*! ../components/time-panel/TimePanel */ "./src/components/time-panel/TimePanel.tsx");
+var App = /** @class */ (function (_super) {
+    __extends(App, _super);
+    function App() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    App.prototype.render = function () {
+        return (React.createElement("div", null,
+            "Here is something:",
+            React.createElement("br", null),
+            React.createElement(TimePanel_1.default, { prefixText: "Current Time" })));
+    };
+    return App;
+}(React.Component));
+exports.default = App;
 
 
 /***/ })

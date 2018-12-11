@@ -4,10 +4,11 @@
         "noImplicitAny": true,
         "removeComments": true,
         "preserveConstEnums": true,
-        "sourceMap": true
+        "sourceMap": true,
+        "lib": [ "es2015" ]
     },
     "include": [
-        "src/**/*", "../hello-world/src/index.ts"
+        "src/**/*", "../hello-world/src/index.ts", "../webclient/src/views/index.tsx"
     ],
     "exclude": [
         "node_modules",

@@ -485,7 +485,7 @@ eval("\r\nexports.__esModule = true;\r\nvar TimeUtils_1 = __webpack_require__(/*
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nexports.__esModule = true;\r\nvar TimeUtils = (function () {\r\n    function TimeUtils() {\r\n    }\r\n    TimeUtils.getDate = function () {\r\n        return \"Current time:\" + new Date();\r\n    };\r\n    return TimeUtils;\r\n}());\r\nexports[\"default\"] = TimeUtils;\r\n\n\n//# sourceURL=webpack://project.sdk/./src/utils/time/TimeUtils.ts?");
+eval("\r\nexports.__esModule = true;\r\nvar TimeUtils = (function () {\r\n    function TimeUtils() {\r\n    }\r\n    TimeUtils.getDate = function () {\r\n        return new Date();\r\n    };\r\n    TimeUtils.getToday = function () {\r\n        var date = this.getDate();\r\n        var _a = [date.getDate(), date.getMonth(), date.getFullYear()], day = _a[0], month = _a[1], year = _a[2];\r\n        return day + \".\" + month + \".\" + year;\r\n    };\r\n    TimeUtils.getCurrentTime = function () {\r\n        var date = this.getDate();\r\n        var _a = [date.getHours(), date.getMinutes(), date.getSeconds()], hours = _a[0], minutes = _a[1], seconds = _a[2];\r\n        return hours + \":\" + minutes + \":\" + seconds;\r\n    };\r\n    return TimeUtils;\r\n}());\r\nexports[\"default\"] = TimeUtils;\r\n\n\n//# sourceURL=webpack://project.sdk/./src/utils/time/TimeUtils.ts?");
 
 /***/ })
 

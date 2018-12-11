@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Main App Component App will match snapshot 1`] = `
+<div>
+  <span>
+    Hello
+  </span>
+  <span>
+    22:22:22 22.2.2022
+  </span>
+</div>
+`;
